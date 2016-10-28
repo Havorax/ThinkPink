@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href = "icon.jpg" rel="icon" type="image/jpg"></link>
+	<title>Think Pink</title>
+	<style>
+		body{
+			display: -webkit-flex;
+		    display: flex;
+		    -webkit-flex-direction: row;
+		    -webkit-align-items: center;
+		    flex-direction: row;
+		    justify-content: center;
+			background: #ff00bf;
+			text-align: center;
+			text-shadow: 0px 0px 9px black;
+			align-items: center;
+			align-content: center;
+			color: white;
+			font-size: 5vmin;
+		}
+		#happy{
+		    background-color: #ffff1a;
+		    border-radius: 16%;
+		    border: none;
+		    color: black;
+		    height: 50vmin;
+		    width: 50vmin;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 10vmin;
+		}
+		#happy:hover {
+		    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		#happy:active {
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
+		}
+		#sad{
+		    background-color: #007399;
+		    border: none;
+		    border-radius: 16%;
+		    color: white;
+		    height: 50vmin;
+		    width: 50vmin;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 10vmin;
+		}
+		#sad:hover {
+		    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		#sad:active {
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
+		}
+		#box{
+		    display: -webkit-flex;
+		    display: flex;
+		    -webkit-align-items: center;
+		    align-items: center;
+		    height: 100vh;
+		}
+		#gap{
+			width: 10vmin;
+		}
+		#innerbox{
+
+		}
+		#red{
+		    background-color: black;
+		    border: none;
+		    border-radius: 16%;
+		    color: white;
+		    height: 33vmin;
+		    width: 66vmin;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 10vmin;
+    		margin: 5vmin;
+		}
+		#red:hover {
+		    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+		}
+		#red:active {
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
+		}
+	</style>
+	<script>
+		var positives = ["Over 2.8 million breast cancer survivors are alive in the United States today", "Men can also develop breast cancer (but not anywhere close to how likely women are)", "Exercise can decrease breast cancer risk (along with risk for other cancers). As little as 1 hour of brisk walking can decrease a woman's risk by 10%", "Just because there's a lump on your breast, it doesn't necessarily mean you have breast cancer", "If you have a fertility treatment, this does not mean that the chances of you getting breast cancer are higher", "80% of men and 88% of women survive breast cancer"]; 
+
+		var negatives = ["According to the American Cancer Society, breast cancer accounts for 29 percent of newly diagnosed cancers","Quit smoking to control risk of many diseases, including breast cancer. Younger women who smoke have a higher risk of breast cancer than their nonsmoking peers","Most breast cancer - about 85 percent - occurs in women who have no family history of breast cancer","Breast cancer is the second most commonly diagnosed cancer in women","Breast cancer is the second leading cause of cancer death among women", "Each year it is estimated that over 246,660 women in the United States will be diagnosed with breast cancer and more than 40,000 will die", "On average, every 2 minutes a woman is diagnosed with breast cancer and 1 woman will die of breast cancer every 13 minutes", "Women who have never been pregnant have a greater risk of breast cancer than those who have... but women who had their first child at after age 30 are at higher risk than those who had their first child earlier", "Alcohol consumption can increase your risk for breast cancer... as well as other cancers", "Being overweight or obese increases breast cancer risk, since fat tissue raises estrogen hormone levels", "About 11% of all new cases of breast cancer in the United States are found in women younger than 45 years of age (CDC.gov)", "The risk of getting breast cancer goes up with age. In the United States, the average age when women are diagnosed with breast cancer is 61. Men who get breast cancer are diagnosed usually between 60 and 70 years old (CDC.gov)", "If you're diagnosed before the age of 40, you have a 4.5 chance of developing breast cancer again"];
+		function sadness()
+		{
+			var myVal = Math.floor(Math.random() * negatives.length);
+			var content = document.getElementById("box");
+			content.innerHTML = 
+			"<div id='innerbox'>"+negatives[myVal]+"<br><button id='red' onclick='reset()'>Thanks</button>";
+		}
+
+		function happiness()
+		{
+			var myVal = Math.floor(Math.random()*positives.length)
+			var content = document.getElementById("box");
+			content.innerHTML = 
+			"<div id='innerbox'>"+positives[myVal]+"<br><br><button id='red' onclick='reset()'>Thanks</button>";
+		}
+
+		function reset()
+		{
+			var content = document.getElementById("box");
+			content.innerHTML = 
+			"<button id='sad' onclick='sadness()'>Despair</button><div id='gap'></div><button id='happy' onclick='happiness()'>Hope</button>";
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<button id="sad" onclick="sadness()">Despair</button>
+		<div id="gap">
+		</div>
+		<button id="happy" onclick="happiness()">Hope</button>
+	</div>
+</body>
+</html>
